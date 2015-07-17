@@ -1,0 +1,92 @@
+<html>
+<head>
+  <title>rakuten search</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    form.search {
+      margin: 0;
+    }
+      /* --- ボックス --- */
+    .search div {
+      width: 388px; /* ボックスの幅 */
+      padding: 1px 0; /* ボックスのパディング（上下、左右） */
+      background-color: #ffffff; /* ボックスの背景色 */
+      border: 1px #808080 solid; /* ボックスの境界線 */
+    }
+      /* --- テキストボックス --- */
+    .search input.keyword {
+      width: 298px; /* テキストボックスの幅 */
+      height: 20px;
+      margin: 0 4px 0 5px; /* テキストボックスのマージン（上右下左） */
+      padding: 0;
+      background-color: #ffffff; /* テキストボックスの背景色 */
+      border: 1px solid black; /* テキストボックスの境界線（なし） */
+      color: #000000;
+    }
+      /* --- ボタン --- */
+    .search input#searchBtn {
+      width: 80px; /* ボタンの幅 */
+      height: 1.8em; /* ボタンの高さ */
+      padding: 0;
+      background: #c08000; /* ボタンの背景 */
+      border: 1px #c08000 inset; /* ボタンの境界線 */
+      font-weight: bold;
+      color: #000000;
+      letter-spacing: 0.3em; /* 文字間のスペース */
+    }
+  </style>
+</head>
+  <body>
+    <script src="/Users/mai.kobari/projects/training/javaScript/syakyou/jquery-1.11.3.min.js">
+    </script>
+    <div>
+      <dl>
+        <center>
+        <dt>楽天検索</dt>
+        <dd><form id="form" method="get" action="#" class="search">
+        <input id="keyword" value="" type="text" class="keyword"/>
+        <input type="button" alt="検索" value="検索" name="searchBtn" id="searchBtn" />
+        </form></dd>
+      </dl>
+    </div>
+
+    <script>
+      var u = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222';
+      $('#searchBtn').on('click', function() {
+        $.ajax(u, {
+          type: 'GET',
+          data: {
+            format: 'json',
+            keyword: document.getElementById('keyword').value,
+            applicationId: '1062350505417577260'
+          },
+          success: function(data, status, xhr) {
+            console.log(data);
+            var $ul = $('<ul></ul>');
+            $.each(data['Items'], function(i, v) {
+                var item = v['Item'];
+                var name = item.itemName;
+                var image = item.smallImageUrls[0].imageUrl;
+                var caption = item.itemCaption;
+                var url = item.itemUrl;
+                var $img = $('<img>');
+                var $link = $('<a>');
+                var $li = $('<li></li>').text(name).css('display','inline-block').css('width','200px').css('border','0.5px black');
+                var $caption = $('<figcaption></figcaption>');
+                // $caption.attr();
+                $link.attr('href',url);
+                $li.append($img);
+                $ul.append($li);
+                $img.attr('src',image).prependTo($li).append('</a>');
+            });
+            $(document.body).append($ul);
+          },
+          error: function(xhr, status, errorThrown) {
+            console.log(xhr);
+          }
+        });
+      })
+
+    </script>
+  </body>
+</html>

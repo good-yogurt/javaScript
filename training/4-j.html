@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+    #target{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        margin: 30px;
+        background-color: #AAFFAA;
+        border: solid 1px #00FF00;
+        text-align: center;
+        line-height: 100px;
+        font-size: 12px;
+        opacity: 1.0;
+        filter: alpha(opacity=100);
+    }
+    </style>
+</head>
+  <body>
+    <script src="/Users/mai.kobari/projects/training/javaScript/syakyou/jquery-1.11.3.min.js"></script>
+    <!HTML要素に対してanimateを実行してみましょう (アニメーションであれば何でも自由)>
+    <div id="target">HTML要素</div>
+
+    <script>
+    $('div').fadeOut(1000).fadeIn(3000);
+    </script>
+  </body>
+</html>

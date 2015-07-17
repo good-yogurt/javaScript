@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+    .container{
+       width: 500px;
+       height: 140px;
+       margin: 50px;
+       position: relative;
+       background-color: #C0C0C0;
+    }
+    #target1{
+       position: absolute;
+       width: 100px;
+       height: 100px;
+       left: 20px;
+       top: 20px;
+       background-color: #AAFFAA;
+    }
+    #target2{
+       position: absolute;
+       width: 100px;
+       height: 100px;
+       left: 380px;
+       top: 20px;
+       background-color: #00FFFF;
+    }
+    </style>
+</head>
+  <body>
+    <script src="/Users/mai.kobari/projects/training/javaScript/syakyou/jquery-1.11.3.min.js"></script>
+    <!•target1とtarget2の位置を入れ替えてください>
+    <div id="target1"></div>
+    <div id="target2"></div>
+
+    <script>
+    $.when($('#target2').css('left',$('#target1').css('left')),
+    $('#target1').css('left',$('#target2').css('left')));
+    </script>
+  </body>
+</html>

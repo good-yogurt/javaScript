@@ -1,0 +1,21 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+    </style>
+    <script type="text/javascript" src="http://express.heartrails.com/api/express.js"></script>
+    <script src="/Users/mai.kobari/projects/training/javaScript/syakyou/jquery-1.11.3.min.js"></script>
+</head>
+  <body onload="HRELoadPrefecture('prefecture', 'line', 'station');">
+    <select id="prefecture" name="prefecture" onchange="HREOnChangePrefecture();">
+    <option value="都道府県を選択してください">都道府県を選択してください</option>
+    </select>
+    <select id="line" name="line" onchange="HREOnChangeLine();">
+    <option value="路線を選択してください">路線を選択してください</option>
+    </select>
+    <select id="station" name="station">
+    <option value="駅を選択してください">駅を選択してください</option>
+    </select>
+
+  </body>
+</html>

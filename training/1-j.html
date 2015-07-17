@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <style type="text/css">
+        .target{
+            width: 100px;
+            height: 100px;
+            margin: 30px;
+            background-color: #AAFFAA;
+            border: solid 1px #00FF00;
+            text-align: center;
+            line-height:100px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!下記のHTMLに対して、次の処理を実行してください
+  •全てのdiv要素の背景色を水色(#00FFFF)に変更してください
+  •1番目のdiv要素のidの値をコンソールに表示してください
+  •2番目のdiv要素内のテキストを「second」というラベルを持つボタンに置き換えてください
+  •3番目のdiv要素の幅と高さを2倍にしてください
+  >
+    <div class="target" id="target1">1番目</div>
+    <div class="target" id="target2">2番目</div>
+    <div class="target" id="target3">3番目</div>
+    <script>
+    $('div').css('background-color', '#00FFFF');
+    console.log($('div').first().id);
+    // $('div').eq(1).replaceWith('<button label="second">second</button>');
+    $('div').eq(2).css('width', 200).css('height', 200);
+    </script>
+  </body>
+</html>

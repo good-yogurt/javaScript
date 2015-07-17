@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+      .target{
+        margin:30px auto;
+        border:solid 1px #808080;
+        border-collapse:collapse;
+      }
+      .target td{
+        border:solid 1px #808080;
+        width:80px;
+        height:30px;
+        line-height:30px;
+        font-size:12px;
+        text-align:center;
+      }
+    </style>
+</head>
+<body>
+    <table class="target" id="t">
+        <tr><td>1行1列</td><td></td><td>1行3列</td><td></td><td></td></tr>
+        <tr><td>2行1列</td><td></td><td></td><td></td><td>2行5列</td></tr>
+        <tr><td>3行1列</td><td>3行2列</td><td></td><td></td><td></td></tr>
+        <tr><td>4行1列</td><td></td><td>4行3列</td><td></td><td></td></tr>
+        <tr><td>5行1列</td><td></td><td></td><td></td><td>5行5列</td></tr>
+        <tr><td>6行1列</td><td></td><td></td><td>6行4列</td><td></td></tr>
+    </table>
+
+    <script>
+    var arr = document.getElementsByTagName('tr');
+    for (var i = 0; i<arr.length; i++) {
+      if(i % 2 === 1) {
+          arr[i].style.backgroundColor = "#00FFFF";
+      }
+      var rowChildren = arr[i].childNodes;
+      for (var j = 0; j< rowChildren.length; j++ ) {
+        if (!rowChildren[j].childNodes.item(0)) {
+          rowChildren[j].style.backgroundColor = "#FFFF00";
+        }
+      }
+    }
+
+    for (var i = 0; i<lilist.length; i++) {
+      if(i % 2 === 0) {
+          lilist[i].style.backgroundColor = "#00FFFF";
+      }
+    </script>
+</body>
+</html>

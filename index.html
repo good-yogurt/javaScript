@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        #target{
+            width: 100px;
+            height: 100px;
+            background-color: #FF0000;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="trigger" />
+    <div id="target"></div>
+
+    <script>
+    var target = document.getElementById('target');
+    var check = document.trigger.checked;
+    if (check == true) {
+      target.style.backgroundColor('blue');
+    } else {
+      target.style.backgroundColor('red');
+    }
+    </script>
+</body>
+</html>

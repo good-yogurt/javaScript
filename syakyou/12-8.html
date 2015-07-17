@@ -1,0 +1,33 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>12-8</title>
+</head>
+  <body>
+    <h1>Twitter社のGitHubリポジトリ一覧を取得する</h1>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script>
+    var url = 'https://www.flickr.com/services/rest/';
+    $.ajax(url, {
+      type:'GET',
+      data: {
+        format: 'json',
+        tags:'cats',
+      },
+      dataType: 'jsonp',
+      jsonp:'jsoncallback',
+      success: function(data,status,xhr) {
+        var $ul = $('<ul></ul>');
+        $.each(data.items, function(i,v) {
+          var title = v.title;
+          var $li = $('<li></li>').text(title);
+          $ul.append($li);
+        });
+      },
+      error: function() {
+        console.log("error");
+      }
+    })
+    </script>
+  </body>
+</html>

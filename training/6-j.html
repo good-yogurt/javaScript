@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+    .wrapper{
+      position: relative;
+      margin:30px;
+      width:800px;
+      height:400px;
+    }
+    #image1{
+       position: absolute;
+       top: 0;
+       left: 0;
+    }
+    #image2{
+       position: absolute;
+       top: 0;
+       left: 0;
+       opacity: 0;
+       filter: alpha(opacity=0);
+    }
+    </style>
+  </head>
+  <body>
+    <script src="/Users/mai.kobari/projects/training/javaScript/syakyou/jquery-1.11.3.min.js"></script>
+    <!--ボタンをクリックした時にimage1の代わりにimage2が表示されるようにしてください-->
+
+    <div class="wrapper">
+        <img src="img/sample1.jpg" id="image1" />
+        <img src="img/sample2.jpg" id="image2" />
+    </div>
+    <input type="button" value="切り替え" id="change" />
+
+    <script>
+    $.when($('#target2').css('left',$('#target1').css('left')),
+    $('#target1').css('left',$('#target2').css('left')));
+    </script>
+  </body>
+</html>

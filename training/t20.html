@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+    <title>rakuten search</title>
+    </style>
+</head>
+  <body>
+  <script src="/Users/mai.kobari/projects/training/javaScript/syakyou/jquery-1.11.3.min.js">
+  </script>
+
+  <script>
+    var u = 'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20140222';
+    $.ajax(u, {
+      type: 'GET',
+      data: {
+          format: 'json',
+          keyword: 'ねこ',
+          applicationId: '1062350505417577260'
+      },
+      success: function(data, status, xhr) {
+          console.log(data);
+          var $ul = $('<ul></ul>');
+          $.each(data['Items'], function(i, v) {
+              var item = v['Item'];
+              var name = item.itemName;
+              var $li = $('<li></li>').text(name);
+              $ul.append($li);
+          });
+          $(document.body).append($ul);
+      },
+      error: function(xhr, status, errorThrown) {
+        console.log(xhr);
+      }
+    });
+  </script
+  </script>
+  </body>
+</html>
